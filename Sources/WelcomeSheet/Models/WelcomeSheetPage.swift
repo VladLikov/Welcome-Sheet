@@ -49,6 +49,7 @@ public struct WelcomeSheetPage: Identifiable, Decodable {
         self.title = title
         self.rows = rows
         self.mainButtonTitle = mainButtonTitle ?? "Continue"
+        self.mainButtonAction = mainButtonAction
         self.accentColor = accentColor
         self.backgroundColor = backgroundColor
         self.isShowingOptionalButton = true
