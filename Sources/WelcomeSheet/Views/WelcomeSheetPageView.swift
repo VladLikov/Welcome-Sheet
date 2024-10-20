@@ -111,11 +111,17 @@ struct WelcomeSheetPageView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .padding()
+                                
                         }
                         .frame(width: isiPad ? iPadSheetDimensions.width / 1.7 : nil)
                         .fixedSize(horizontal: false, vertical: true)
                         .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
                     }
+                    .simultaneousGesture(TapGesture().onEnded {
+                        if let action = page.mainButtonAction {
+                            action()
+                        }
+                    })
                     .buttonStyle(PlainButtonStyle())
                     .padding(.horizontal, 10)
                     .padding(.top)
@@ -135,6 +141,11 @@ struct WelcomeSheetPageView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
                     }
+                    .simultaneousGesture(TapGesture().onEnded {
+                        if let action = page.mainButtonAction {
+                            action()
+                        }
+                    })
                     .buttonStyle(PlainButtonStyle())
                     .padding(.horizontal, 10)
                     .padding(.top)
